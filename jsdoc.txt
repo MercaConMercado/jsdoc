@@ -1,0 +1,44 @@
+MODULOS: nodemon , jsdoc
+- JSDOC: se debe crear archivo de configuracion jsdoc.json con la siguiente especificacion<br>
+
+<code>
+{
+    "plugins": [],
+    "source": {
+        "include": [
+            "src"
+        ],
+        "includePattern": ".js$",
+        "excludePattern": "(node_modules|docs)"
+    },
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false
+    },
+    "opts": {
+        "recurse": true,
+        "destination": "./docs"
+    }
+}
+
+</code>
+- para inicializarlo se dene hacer 
+- npm run dev // o gestionar por un script en package.json 
+<code>
+"scripts": {
+    "docs": "jsdoc -c jsdoc.json",
+    "dev": "nodemon --exec npm run docs"
+  }, 
+</code>
+
+- Estructura de Documentacion 
+/**
+ * Constantes nombre
+ * @type {string}
+ */
+
+ - SE PUEDEN DOCUMENTAR ARREGLOS, FUNCIONES , OBJETOS
+
+ - Para obtener funcion de TypeScript de correcciones y autocomplatado :
+ -crear carpeta .cscode/settings.json 
+  - agregar : "js/ts.implicitProjectConfig.checkJs": true
